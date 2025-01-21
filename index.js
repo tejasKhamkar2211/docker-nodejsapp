@@ -2,7 +2,7 @@ var express = require('express');
  
 var app = express();//Respond with "hello world" for requests that hit our root "/"
 app.get('/', function (req, res) {
- res.send('Create a Jenkins pipeline to pull the latest Docker image and deploy it to a new node for continuous integration.');
+ res.send(' is there class today');
 });//listen to port 3000 by default
 app.listen(process.env.PORT || 3000);
  
