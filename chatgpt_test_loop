@@ -1,0 +1,19 @@
+# Stop and remove any existing container
+docker stop nodejslive || true
+docker rm nodejslive || true
+
+# Run the container
+docker run -d -p 80:3000 --name nodejslive nodeimage1
+
+# Monitor the container for 30 seconds
+echo "Monitoring 'nodejslive' for 30 seconds..."
+for i in {1..30}; do
+    if docker ps --filter "name=nodejslive" --filter "status=running" | grep nodejslive > /dev/null; then
+        echo "[$i sec] Container is running"
+    else
+        echo "[$i sec] Container is NOT running!"
+        break
+    fi
+    sleep 1
+done
+echo "Monitoring complete!"
